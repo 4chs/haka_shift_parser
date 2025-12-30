@@ -136,10 +136,11 @@ def ics_file_creator(name, chosen_pdf):
 
 ## Main page
 # Streamlit UI
+st.set_page_config(page_title="🏨 Haka House Shifter")
 st.title("Haka shift calendar event maker")
 
 # File upload
-uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
+uploaded_file = st.file_uploader("Upload a shift roster PDF file", type=["pdf"])
 
 if uploaded_file:
     # Extract names from the PDF
@@ -147,7 +148,7 @@ if uploaded_file:
         names = name_extracor_from_pdf(uploaded_file)  # Pass the file to the extractor
 
         if names:
-            st.write("Names found in the PDF:")
+            st.write("Names found in the roster:")
 
             # Display buttons in 3 columns layout
             num_buttons = len(names)
@@ -175,8 +176,8 @@ if uploaded_file:
                         mime="application/calendar"
                     )
                 except Exception as e:
-                    st.error(f"Script2: {e}")
+                    st.error(f"Function2: {e}")
         else:
             st.warning("No names found in the PDF.")
     except Exception as e:
-        st.error(f"Script1: {e}")
+        st.error(f"Function1: {e}")
