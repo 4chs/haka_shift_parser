@@ -150,10 +150,10 @@ if uploaded_file:
 
             # Display buttons in 3 columns layout
             num_buttons = len(names)
-            columns = st.columns(2)  # Create 3 columns
+            columns = st.columns(1)  # Create 3 columns
 
             selected_name = None
-            for i in range(0, num_buttons, 3):  # Loop through names in steps of 3
+            for i in range(0, num_buttons, 1):  # Loop through names in steps of 3
                 for j, col in enumerate(columns):
                     if i + j < num_buttons:
                         name = names[i + j]
