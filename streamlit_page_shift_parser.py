@@ -106,7 +106,7 @@ def ics_file_creator(name, chosen_pdf):
         "VERSION:2.0",
         "PRODID:-//" + PERSON_NAME + " Shift Calendar//EN"
     ]
-
+    now_utc = datetime.datetime.now(pytz.utc)
     # Add every shift
     for start, end in shift_list:
         shift_length = round((end - start).total_seconds() / 3600, 2)
