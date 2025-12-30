@@ -111,10 +111,11 @@ def ics_file_creator(name, chosen_pdf):
     for start, end in shift_list:
         shift_length = round((end - start).total_seconds() / 3600, 2)
         uid = f"{start.timestamp()}-{PERSON_NAME}@roster"
-
+        dtstamp = now_utc.strftime("%Y%m%dT%H%M%SZ")
         ics_file.extend([
             "BEGIN:VEVENT",
             f"UID:{uid}",
+            f"DTSTAMP:{dtstamp}”
             f"DTSTART:{ics_dt(start)}",
             f"DTEND:{ics_dt(end)}",
             f"SUMMARY:HK Shift {shift_length} hrs",
