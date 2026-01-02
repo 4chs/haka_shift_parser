@@ -175,12 +175,12 @@ if uploaded_file:
                         ics_name, file_content, num_of_shifts = ics_file_creator(name, uploaded_file)
                         # Button creation
                         cols[index].download_button(
-                            label=f"{name} ({num_of_shifts})",
+                            label=f"{name} ({num_of_shifts} shifts)",
                             data="\n".join(file_content).encode("utf-8"),
                             file_name=ics_name,
                             mime="text/calendar",
                             key=f"download_{name}",
-                            use_container_width=True  # Adjust the width
+                            use_container_width=False  # Adjust the width
                         )
                     except Exception as e:
                         cols[index].error(f"Error processing name: {name}")
