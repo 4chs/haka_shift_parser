@@ -12,7 +12,7 @@ def remove_rows(data_table):
     # Remove right columns, leaving only names and dates
     data_table = [row[:15] for row in data_table]
     # Remove technocal row among names
-    data_table = [row for row in data_table if row[0] != "Hours ALL / HK"]
+    data_table = [row for row in data_table if "Hours" not in row[0]]
     # Remove last techniocal rows
     for column, row in enumerate(data_table):
         if row[0] == "Laundry & Public Areas":  # Check if the first index matches the value
